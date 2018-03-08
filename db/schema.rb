@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180307015242) do
     t.datetime "end_date"
     t.decimal "event_price"
     t.text "address"
+    t.string "eventbrite_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

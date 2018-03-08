@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration[5.1]
       t.datetime :end_date
       t.decimal :event_price
       t.text :address
+      t.string :eventbrite_url
       t.timestamps
     end
   end

@@ -9,7 +9,6 @@ class Event < ApplicationRecord
   end
 
   def self.eventbrite_post_event(event)
-
       payload = {
         'event.name.html' => event.name,
         'event.description.html' => event.description,
@@ -28,7 +27,7 @@ class Event < ApplicationRecord
       rescue RestClient::ExceptionWithResponse => err
         puts err.response
       end
-      response
+      event["eventbrite_url"] = JSON.parse(response.body)['url']
   end
 
 end

@@ -30,6 +30,7 @@ gem "sidekiq"
 gem 'rack-cors'
 gem 'rest-client'
 gem 'eventbrite_sdk'
+gem 'json'
 
 gem 'whenever', require: false
 
