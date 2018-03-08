@@ -8,7 +8,5 @@ require "./"+ File.dirname(__FILE__) + "/environment.rb"
 set :output, 'log/whenever.log'
 
 every :hour do
-  runner "Event.syndicate_events"
+  runner "Event.syndicate_events" , :environment => "development"
 end
-
-puts __FILE__
