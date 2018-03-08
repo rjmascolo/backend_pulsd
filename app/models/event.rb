@@ -5,7 +5,9 @@ class Event < ApplicationRecord
   def self.syndicate_events
     current_time = Time.now.in_time_zone
     recently_added_events = Event.where('created_at BETWEEN ? AND ?', (current_time - 1.hour), current_time)
-    recently_added_events.each{ |event| Event.eventbrite_post_event(event) }
+    recently_added_events.each{ |event|
+      Event.eventbrite_post_event(event)
+    }
   end
 
   def self.eventbrite_post_event(event)
@@ -28,6 +30,7 @@ class Event < ApplicationRecord
         puts err.response
       end
       event["eventbrite_url"] = JSON.parse(response.body)['url']
+      event.save
   end
 
 end

@@ -5,10 +5,11 @@
 
 # Example:
 #
+require "./"+ File.dirname(__FILE__) + "/environment.rb"
 set :output, 'log/whenever.log'
 
 # Learn more: http://github.com/javan/whenever
 
-every :hour do
+every 1.minute do
   runner "Event.syndicate_events"
 end
